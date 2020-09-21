@@ -1,10 +1,46 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Student XMLResult Parser Application</title>
-</head>
-<body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>XML Student Details Parser Application</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href='{% static "baseview/css/bootstrap.min.css" %}' crossorigin="anonymous">
+    {% block extra_head_content %}{% endblock %}
+      <link rel="stylesheet" href='{% static "baseview/css/custom.css" %}'>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="/">DataParser</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item {% if request.path == '/' %} active {% endif %}">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item {% if request.path == '/accounts/login/' %} active {% endif %}">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>
 
-</body>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src='{% static "baseview/js/jquery-3.5.1.min.js" %}' crossorigin="anonymous"></script>
+    <script src='{% static "baseview/js/popper.min.js" %}' crossorigin="anonymous"></script>
+    <script src='{% static "baseview/js/bootstrap.min.js" %}' crossorigin="anonymous"></script>
+  </body>
 </html>

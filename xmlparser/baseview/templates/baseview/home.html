@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HomePage</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "baseview/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid h-100">
+    <div class="row">
+        <div class="col col-sm-12 col-md-12 py-5">
+            <div class="col col-md-5 text-center mx-auto">
+                <h2 class="text-white">Upload and Analyze your XML Data</h2>
+                <p class="text-white text-center">XML Import | Database Integration | Portal with Excel Download </p>
+                <a href="{% url 'upload' %}" class="badge-pill btn btn-outline-light btn-lg">Start Uploading</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
