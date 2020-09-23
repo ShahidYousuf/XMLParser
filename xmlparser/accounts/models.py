@@ -53,7 +53,7 @@ class UserProfile(models.Model):
         ('F', 'Female'),
     )
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE,related_name="%(class)s",)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="%(class)s", primary_key=True)
     city = models.CharField(max_length=100, null=True)
     state = models.CharField(max_length=100, null=True)
     country = models.CharField(max_length=100, null=True)

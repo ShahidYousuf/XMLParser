@@ -1,7 +1,9 @@
-import xml
+from datetime import datetime
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
+from lxml import etree
+from accounts.models import User, Student
 
 from .forms import UploadXMLForm
 
@@ -43,5 +45,51 @@ class UploadView(View):
 
     def process_xml_upload(self, xmlfile=None, *args, **kwargs):
         if xmlfile is not None:
-            pass
+            xmltree = etree.parse(xmlfile)
+            root = xmltree.getroot()
+            for element in root.iter():
+                if str(element.tag).strip().lower() == "student":
+                    first_name = element.findtext("first_name", "")
+                    last_name = element.findtext("last_name", "")
+                    email = element.findtext("email", "")
+                    dob = element.findtext("dob", None)
+                    phone = element.findtext("phone", "")
+                    gender = element.findtext("gender", "Male")
+                    regd_number = element.findtext("registration_number", "")
+                    total_marks = element.findtext("total_marks", 1000)
+                    marks_obtained = element.findtext("marks_obtained", 0)
+                    passed = element.findtext("passed", "1")
+                    address = element.find("address")
+                    city = state = country = zipcode = None
+                    if address is not None:
+                        city = address.findtext("city", "")
+                        state = address.findtext("state", "")
+                        country = address.findtext("country", "")
+                        zipcode = address.findtext("zipcode", "")
+                    std_user, is_present = User.objects.get_or_create(email=email)
+                    std_user.username = email
+                    std_user.first_name = first_name
+                    std_user.last_name = last_name
+                    std_user.is_active = True
+                    std_user.set_password(email)
+                    std_user.save()
+                    student = Student(user=std_user)
+                    student.city = city
+                    student.state = state
+                    student.country = country
+                    student.zip = zipcode
+                    student.gender = "M" if gender == "Male" else "F"
+                    if dob is not None:
+                        student.dob = datetime.strptime(dob, "%d/%m/%Y").date()
+                    student.phone = phone
+                    student.registration_numner = regd_number
+                    student.total_marks = total_marks
+                    student.marks_obtained = marks_obtained
+                    if int(passed) == 1:
+                        student.is_passed = True
+                    else:
+                        student.is_passed = False
+                    student.save()
+
+
 

@@ -1,5 +1,4 @@
 from django import forms
-from lxml import etree
 
 class UploadXMLForm(forms.Form):
     xmlfile = forms.FileField(required=True, widget=forms.FileInput(attrs={"class":"form-control"}))
