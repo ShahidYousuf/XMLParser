@@ -94,8 +94,10 @@ class UploadView(View):
                         student.is_passed = False
                     student.save()
 
-class UploadDetailView(View):
+class UploadDetailView(LoginRequiredMixin, View):
     template_name = "baseview/details.html"
+    login_url = '/accounts/login/'
+    redirect_field_name = 'next'
 
     def get(self, request, *args, **kwargs):
         students = Student.objects.all().exclude(registration_numner__in = ["", " "])
