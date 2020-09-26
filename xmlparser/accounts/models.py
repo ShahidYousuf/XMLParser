@@ -82,6 +82,12 @@ class Student(UserProfile):
     def __str__(self):
         return "%s" % self.user.email
 
+    def get_pass_status(self):
+        if self.is_passed:
+            return "Passed"
+        else:
+            return "Failed"
+
     class Meta:
         verbose_name = _("student")
         verbose_name_plural = _("students")

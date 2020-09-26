@@ -9,12 +9,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href='{% static "baseview/css/bootstrap.min.css" %}' crossorigin="anonymous">
     {% block extra_head_content %}{% endblock %}
+      <link rel="stylesheet" href='{% static "baseview/css/datatables.min.css" %}'>
+      <link rel="stylesheet" href='{% static "baseview/css/font-awesome.min.css" %}'>
       <link rel="stylesheet" href='{% static "baseview/css/custom.css" %}'>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="/">DataParser</a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">XMLParser</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -34,13 +36,44 @@
       {% block content %}
       {% endblock %}
     </main>
-    <footer>
-
+    <footer class="footer mt-5 pb-3 border-dark bg-dark text-white">
+        <div class="row text-center pt-4">
+          <div class="col col-sm-4 col-md-4">
+            <p><i class="fa fa-copyright"></i> XMLParser | 2020</p>
+              <small>An XML parser extracting data from a sample xml file containing student details</small>
+          </div>
+            <div class="col col-sm-4 col-md-4">
+            <p><i class="fa fa-code text-success"></i> Website Tech Stack</p>
+                <ul class="dev-ul text-left">
+                    <li class="font-weight-lighter">Backend Programming Language: Python</li>
+                    <li>Database Server: MySQL</li>
+                    <li>Frontend Tech: HTML, CSS, JQuery, Bootstrap</li>
+                </ul>
+          </div>
+            <div class="col col-sm-4 col-md-4 text-center">
+                <p><i class="fa fa-users text-success"></i> Developers</p>
+                <ul class="dev-ul text-left">
+                    <li>Isna Yousuf, <small>Student, SSM College, CSE Department</small></li>
+                    <li>Suraya Manzoor, <small>Student, SSM College, CSE Department</small></li>
+                    <li>Inayat Yousuf, <small>Student, SSM College, CSE Department</small></li>
+                </ul>
+          </div>
+        </div>
+            <div class="row text-center pt-2">
+                <div class="col col-sm-12 col-md-12">
+                    <small><i class="fa fa-user text-success"></i> Lead Developer and Project Guide:</small>
+                    <small><a href="mailto:shahidyousuf77@gmail.com">Shahid Yousuf</a></small>
+                    <small>Software Engineer, Applied Informatics Pvt. Ltd.</small>
+                </div>
+            </div>
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src='{% static "baseview/js/jquery-3.5.1.min.js" %}' crossorigin="anonymous"></script>
     <script src='{% static "baseview/js/popper.min.js" %}' crossorigin="anonymous"></script>
     <script src='{% static "baseview/js/bootstrap.min.js" %}' crossorigin="anonymous"></script>
+    <script src='{% static "baseview/js/datatables.min.js" %}'></script>
+    <script src='{% static "baseview/js/pdfmake.min.js" %}'></script>
+    <script src='{% static "baseview/js/custom.js" %}'></script>
   </body>
 </html>

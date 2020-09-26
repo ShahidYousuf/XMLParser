@@ -5,9 +5,49 @@
     <div class="row">
         <div class="col col-sm-12 col-md-12 py-5">
             <div class="col col-md-5 text-center mx-auto">
-                <h2 class="text-white">Upload and Analyze your XML Data</h2>
-                <p class="text-white text-center">XML Import | Database Integration | Portal with Excel Download </p>
-                <a href="{% url 'upload' %}" class="badge-pill btn btn-outline-light btn-lg">Start Uploading</a>
+                <h2 class="text-dark">Upload and Analyze your XML Data</h2>
+                <p class="text-primary text-center">XML Import | Database Integration | Portal with Excel Download </p>
+                <a href="{% url 'upload' %}" class="badge-pill btn btn-outline-dark btn-lg box-shadow">Start Uploading</a>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center mb-3">
+        <div class="col col-md-5 text-dark d-sm-one d-md-block">
+            <hr class="border-primary" />
+        </div>
+        <div class="col col-sm-12 col-md-2">
+            <h4 class="text-primary">Features</h4>
+        </div>
+        <div class="col col-md-5 text-dark d-sm-none d-md-block">
+            <hr class="border-primary" />
+        </div>
+    </div>
+    <div class="row text-center container-fluid">
+        <div class="col col-sm-12 col-md-4">
+            <div class="card text-success bg-white border-white mb-3 box-shadow">
+                <div class="card-header bg-white border-white text-danger"><i class="fa fa-file-code-o"></i></div>
+                 <div class="card-body">
+                    <h5 class="card-title text-dark">XML Data Import</h5>
+                     <p class="card-text text-dark">Upload your data from a file containing XML formatted data.</p>
+                 </div>
+            </div>
+        </div>
+        <div class="col col-sm-12 col-md-4">
+            <div class="card text-success bg-white border-white mb-3 box-shadow">
+                <div class="card-header bg-white border-white"><i class="fa fa-table"></i></div>
+                 <div class="card-body">
+                    <h5 class="card-title text-dark">View Data Analytics</h5>
+                     <p class="card-text text-dark">Your uploaded data is parsed and stored in the database for easy viewing and analytics</p>
+                 </div>
+            </div>
+        </div>
+        <div class="col col-sm-12 col-md-4">
+            <div class="card text-success bg-white border-white mb-3 box-shadow">
+                <div class="card-header bg-white border-white text-primary"><i class="fa fa-file-excel-o"></i></div>
+                 <div class="card-body">
+                    <h5 class="card-title text-dark">Export as Excel</h5>
+                     <p class="card-text text-dark">You can easily download your copy of data in Excel format</p>
+                 </div>
             </div>
         </div>
     </div>

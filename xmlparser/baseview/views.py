@@ -36,12 +36,15 @@ class UploadView(View):
         if self.form_class(request.POST, request.FILES).is_valid():
             # now process the xml input
             self.process_xml_upload(xmlfile=xmlfile)
+            context = {
+                'message': "Your data has been successfully uploaded."
+            }
+            return render(request, self.template_name, context)
         else:
             context = {
                 'form': self.form_class(request.POST, request.FILES)
             }
             return render(request, self.template_name, context)
-        return redirect(to="home")
 
     def process_xml_upload(self, xmlfile=None, *args, **kwargs):
         if xmlfile is not None:
@@ -90,6 +93,16 @@ class UploadView(View):
                     else:
                         student.is_passed = False
                     student.save()
+
+class UploadDetailView(View):
+    template_name = "baseview/details.html"
+
+    def get(self, request, *args, **kwargs):
+        students = Student.objects.all().exclude(registration_numner__in = ["", " "])
+        context = {
+            "students": students
+        }
+        return render(request, self.template_name, context)
 
 
 

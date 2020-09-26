@@ -1,0 +1,45 @@
+{% extends "baseview/base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-12 col-md-12 py-5">
+                    <h5 class="text text-success py-2">Analyze your data</h5>
+            <table id="detail-table" class="table table-sm table-light table-striped table-hover table-responsive-sm">
+                <thead>
+                <tr>
+                    <th>Regd. Number</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Total Marks</th>
+                    <th>Marks Obtained</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.registration_numner }}</td>
+                    <td>{{ student.user.first_name }}</td>
+                    <td>{{ student.user.last_name }}</td>
+                    <td>{{ student.user.email }}</td>
+                    <td>{{ student.dob }}</td>
+                    <td>{{ student.gender }}</td>
+                    <td>{{ student.phone }}</td>
+                    <td>{{ student.get_address }}</td>
+                    <td>{{ student.total_marks }}</td>
+                    <td>{{ student.marks_obtained }}</td>
+                    <td>{% if student.get_pass_status == 'Passed' %}<i class="fa fa-check text-success"></i>{% else %}<i class="fa fa-check text-danger"></i>{% endif %}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

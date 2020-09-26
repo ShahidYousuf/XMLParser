@@ -4,7 +4,8 @@
     <div class="row">
         <div class="col col-sm-12 col-md-12 py-5">
             <div class="col col-md-4 text-center mx-auto">
-                <div class="card border-light mb-3">
+                {% if form %}
+                <div class="card border-success mb-3">
                       <div class="card-body">
                         <h5 class="card-title">Upload your XML file</h5>
                           {% if form.errors %}
@@ -33,6 +34,10 @@
                           <p class="text text-sm">Facing issues? <a class="text text-sm" href="mailto:shahidyousuf77@gmail.com">Click here</a> to contact the admin.</p>
                       </div>
                 </div>
+                {% else %}
+                <h5 class="text text-dark">{{ message }}</h5>
+                <a href="{% url 'details' %}" class="badge-pill btn btn-outline-success btn-lg">View Your Data</a>
+                {% endif %}
             </div>
         </div>
     </div>
