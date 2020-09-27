@@ -1,0 +1,68 @@
+{% extends "baseview/base.html" %}
+{% block content %}
+<div class="container-fluid h-100">
+    <div class="row">
+        <div class="col col-sm-12 col-md-12 py-5">
+            <div class="col col-md-6 text-center mx-auto">
+                <div class="card border-dark mb-3 box-shadow">
+                      <div class="card-body">
+                        <h5 class="card-title mb-5">Create an account</h5>
+                          {% if form.errors %}
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                              {{ message }}
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          {% endif %}
+                        <div class="card-text">
+                            <form id="register-form" class="form" method="post" action="{% url 'register' %}">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                    {{ form.first_name }}
+                                        {% if form.first_name.errors %}
+                                        <small class="text text-danger text-left">{{form.first_name.errors}}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                    {{ form.last_name }}
+                                        {% if form.last_name.errors %}
+                                        <small class="text text-danger text-left">{{form.last_name.errors}}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form.email }}
+                                    {% if form.email.errors %}
+                                        <small class="text text-danger text-left">{{form.email.errors}}</small>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.password }}
+                                    {% if form.password.errors %}
+                                        <small class="text text-danger text-left">{{form.password.errors}}</small>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.password_confirm }}
+                                    {% if form.password_confirm.errors %}
+                                        <small class="text text-danger text-left">{{form.password_confirm.errors}}</small>
+                                    {% endif %}
+
+                                </div>
+                                <div class="text-left mt-4 clearfix">
+                                    <button type="submit" class="btn btn-success float-right">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                      </div>
+                      <div class="card-footer border-white bg-white text-center py-0">
+                          <p class="text text-sm"><a class="text text-sm" href="mailto:shahidyousuf77@gmail.com?Subject=Account Registration Issue">Email admin</a> if you are facing issues while creating an account.</p>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

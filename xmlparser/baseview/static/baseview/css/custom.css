@@ -2,6 +2,15 @@
     font-size: 0.85rem;
 }
 #detail-table_filter {
+    text-align: left !important;
+}
+#detail-table_length {
+    text-align: left !important;
+}
+#detail-table_info {
+    text-align: left !important;
+}
+/*#detail-table_filter {
     float: right;
 }
 .dataTables_length label {
@@ -9,7 +18,7 @@
 }
 .dataTables_length label .custom-select {
     width: 30% !important;
-}
+}*/
 #detail-table_paginate {
     float: right;
 }
@@ -24,8 +33,11 @@ box-shadow: 2px 5px 2px 0px rgba(169,169,169,1);
 box-shadow: 5px 10px 5px 0px rgba(169,169,169,1);
 }
 
-.fa-table, .fa-file-code-o, .fa-file-excel-o {
+.card .fa-table, .card .fa-file-code-o, .card .fa-download {
     font-size: 3rem !important;
+}
+.dt-buttons button {
+   margin-right: 0.2rem;
 }
 .footer {
   /*overflow-x: hidden;*/

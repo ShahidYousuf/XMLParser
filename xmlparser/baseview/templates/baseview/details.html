@@ -2,38 +2,38 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col col-sm-12 col-md-12 py-5">
-                    <h5 class="text text-success py-2">Analyze your data</h5>
-            <table id="detail-table" class="table table-sm table-light table-striped table-hover table-responsive-sm">
+        <div class="col col-sm-12 col-md-12 pt-3 mb-5">
+                    <h5 class="text text-primary py-2">Analyze your data</h5>
+            <table id="detail-table" class="table table-sm table-light table-striped table-hover table-responsive-md">
                 <thead>
                 <tr>
-                    <th>Regd. Number</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>DOB</th>
-                    <th>Gender</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Total Marks</th>
-                    <th>Marks Obtained</th>
-                    <th>Status</th>
+                    <th class="text-sm">Regd. Number</th>
+                    <th class="text-sm">First Name</th>
+                    <th class="text-sm">Last Name</th>
+                    <th class="text-sm">Email</th>
+                    <th class="text-sm">DOB</th>
+                    <th class="text-sm">Gender</th>
+                    <th class="text-sm">Phone</th>
+                    <th class="text-sm">Address</th>
+                    <th class="text-sm">Total Marks</th>
+                    <th class="text-sm">Marks Obtained</th>
+                    <th class="text-sm">Passed Exam</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for student in students %}
                 <tr>
-                    <td>{{ student.registration_numner }}</td>
-                    <td>{{ student.user.first_name }}</td>
-                    <td>{{ student.user.last_name }}</td>
-                    <td>{{ student.user.email }}</td>
-                    <td>{{ student.dob }}</td>
-                    <td>{{ student.gender }}</td>
-                    <td>{{ student.phone }}</td>
-                    <td>{{ student.get_address }}</td>
-                    <td>{{ student.total_marks }}</td>
-                    <td>{{ student.marks_obtained }}</td>
-                    <td>{% if student.get_pass_status == 'Passed' %}<i class="fa fa-check text-success"></i>{% else %}<i class="fa fa-check text-danger"></i>{% endif %}</td>
+                    <td class="text-sm">{{ student.registration_numner }}</td>
+                    <td class="text-sm">{{ student.user.first_name }}</td>
+                    <td class="text-sm">{{ student.user.last_name }}</td>
+                    <td class="text-sm">{{ student.user.email }}</td>
+                    <td class="text-sm">{{ student.dob }}</td>
+                    <td class="text-sm">{{ student.get_long_gender }}</td>
+                    <td class="text-sm">{{ student.phone }}</td>
+                    <td nowrap="" class="text-sm">{{ student.get_address }}</td>
+                    <td class="text-sm">{{ student.total_marks }}</td>
+                    <td class="text-sm">{{ student.marks_obtained }}</td>
+                    <td class="text-sm">{% if student.get_pass_status == 'Passed' %}<i class="fa fa-check text-success"></i><span class="sr-only">Passed</span>{% else %}<i class="fa fa-check text-danger"></i><span class="sr-only">Failed</span>{% endif %}</td>
                 </tr>
                 {% endfor %}
                 </tbody>

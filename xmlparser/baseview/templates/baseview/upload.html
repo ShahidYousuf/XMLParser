@@ -2,14 +2,14 @@
 {% block content %}
 <div class="container-fluid h-100">
     <div class="row">
-        <div class="col col-sm-12 col-md-12 py-5">
-            <div class="col col-md-4 text-center mx-auto">
+        <div class="col-md-12 py-5">
+            <div class="col-md-4 text-center mx-auto">
                 {% if form %}
                 <div class="card border-dark mb-3 box-shadow">
                       <div class="card-body">
                         <h5 class="card-title">Upload your XML file</h5>
                           {% if form.errors %}
-                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          <div class="col-md-12 alert alert-danger alert-dismissible fade show" role="alert">
                               Oops! Please clear the following errors
                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -31,7 +31,7 @@
                         </div>
                       </div>
                       <div class="card-footer border-white bg-white text-center py-0">
-                          <p class="text text-sm">Facing issues? <a class="text text-sm" href="mailto:shahidyousuf77@gmail.com">Click here</a> to contact the admin.</p>
+                          <p class="text text-sm">Facing issues? <a class="text text-sm" href="mailto:shahidyousuf77@gmail.com?Subject=XML File Upload Issue">Click here</a> to contact the admin.</p>
                       </div>
                 </div>
                 {% else %}

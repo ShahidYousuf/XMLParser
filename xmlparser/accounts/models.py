@@ -70,6 +70,14 @@ class UserProfile(models.Model):
         address = "%s, %s, %s %s" % (self.city, self.state, self.country, self.zip)
         return address
 
+    def get_long_gender(self):
+        if str(self.gender).upper().strip() == "M":
+            return "Male"
+        elif str(self.gender).upper().strip() == "F":
+            return "Female"
+        else:
+            return self.gender
+
 class Student(UserProfile):
     registration_numner = models.CharField(_('Registration Number'), max_length=250, null=True, blank=True)
     is_passed = models.BooleanField(null=True, default=False)
