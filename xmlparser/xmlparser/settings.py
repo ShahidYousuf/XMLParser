@@ -134,7 +134,7 @@ FILE_UPLOAD_HANDLERS = [
     'django.core.files.uploadhandler.MemoryFileUploadHandler',
     'django.core.files.uploadhandler.TemporaryFileUploadHandler',
 ]
-FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440 # 2MB max
 
 ADMINS = (
 ("Shahid Yousuf", "shahidyousuf77@gmail.com"),
