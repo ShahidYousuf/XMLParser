@@ -136,6 +136,9 @@ FILE_UPLOAD_HANDLERS = [
 ]
 FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
 
+ADMINS = (
+("Shahid Yousuf", "shahidyousuf77@gmail.com"),
+)
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
