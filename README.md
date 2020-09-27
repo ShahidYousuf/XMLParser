@@ -16,7 +16,7 @@ A sample web application featuring data uploading and data parsing of XML file c
 `source /path/to/your/virtual_env/bin/activate`
 #### Step 5: Install the project requirements:
 `pip install -r requirements.txt`
-#### Step 6: Create a MySQL database instance and populate in project settings.py file
+#### Step 6: Create a MySQL database instance and database settings in the project settings.py file:
 `DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
